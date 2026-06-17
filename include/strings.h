@@ -2,19 +2,21 @@
 #define REDUNDANC_STRINGS_H
 #include <stddef.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 typedef struct {
 
     char* val;
     size_t length;
+    size_t allocated;
 
 } String;
 
 //string init
-void string(char* c);
+String new_string(char* c);
 
-//add a char/line at the end
-void append(char* c);
+//print string
+void print_string(String str);
 
 //return the char at index
 char at(int i);
