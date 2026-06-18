@@ -15,7 +15,14 @@ String new_string(char *c) {
 
     return this;
 }
-void print_string(String str){
-    printf("%s", str.val);
+
+
+void print_string(String* str){
+    printf("%s", str->val);
+}
+
+
+char string_at(String* str, int i){
+    return *(str->val + i);
 }
 

@@ -16,10 +16,10 @@ typedef struct {
 String new_string(char* c);
 
 //print string
-void print_string(String str);
+void print_string(String* str);
 
 //return the char at index
-char at(int i);
+char string_at(String* str, int i);
 
 //empty the string
 void clear();
