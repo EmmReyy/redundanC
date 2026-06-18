@@ -9,14 +9,13 @@ String new_string(char *c) {
 
     if (c == NULL){
         fprintf(stderr, "Dumbass Error: String value is empty.\n");  
-        return; 
+        return this; 
     }
 
-    this.val = NULL;
     this.length = strlen(c);
     this.allocated = this.length + 1;
 
-    this.val = realloc(this.val, this.allocated);
+    this.val = malloc(this.allocated);
 
     if (this.val == NULL) {
         fprintf(stderr, "Fatal Error: Memory allocation failed in new_string.\n");  
@@ -31,10 +30,9 @@ String new_string(char *c) {
 }
 
 
-String change_string(String* str, char* c){
+void change_string(String* str, char* c){
     if (str == NULL || c == NULL){
         fprintf(stderr, "Dumbass Error: String value is empty.\n");  
-        return; 
     }
 
     str->length = strlen(c);
