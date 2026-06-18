@@ -4,7 +4,14 @@
 
 
 String new_string(char *c) {
+
     String this;
+
+    if (c == NULL){
+        fprintf(stderr, "Dumbass Error: String value is empty.\n");  
+        return; 
+    }
+
     this.val = NULL;
     this.length = strlen(c);
     this.allocated = this.length + 1;
@@ -23,6 +30,21 @@ String new_string(char *c) {
     return this;
 }
 
+
+String change_string(String* str, char* c){
+    if (str == NULL || c == NULL){
+        fprintf(stderr, "Dumbass Error: String value is empty.\n");  
+        return; 
+    }
+
+    str->length = strlen(c);
+    str->allocated = str->length + 1;
+
+    str->val = malloc(str->allocated);
+    if (str->val != NULL) {
+        memcpy(str->val, c, str->allocated);
+    }
+}
 
 void print_string(String* str){
     printf("%s", str->val);

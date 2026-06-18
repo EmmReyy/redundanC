@@ -15,6 +15,9 @@ typedef struct {
 //string init
 String new_string(char* c);
 
+//for changing a string's value. more efficent
+String change_string(String* str, char* c);
+
 //print string
 void print_string(String* str);
 
