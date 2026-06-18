@@ -5,13 +5,20 @@
 
 String new_string(char *c) {
     String this;
-
+    this.val = NULL;
     this.length = strlen(c);
     this.allocated = this.length + 1;
 
-    this.val = malloc(this.allocated);
+    this.val = realloc(this.val, this.allocated);
 
-    strcpy(this.val, c);
+    if (this.val == NULL) {
+        fprintf(stderr, "Fatal Error: Memory allocation failed in new_string.\n");  
+        this.length = 0;
+        this.allocated = 0;
+        return this; 
+    }
+
+    memcpy(this.val, c, this.allocated);
 
     return this;
 }
