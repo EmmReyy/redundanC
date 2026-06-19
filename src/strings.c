@@ -4,9 +4,22 @@
 
 
 void secret_string_append(String* str, const char* c){
-    int l = strlen(c);
-    str->length += l;
+    
+    int app_len = strlen(c);
+    int new_allocate =  str->allocated+app_len;
 
+    if (str->allocated < str->length + 1 + app_len){
+        char* safety = realloc(str->val, new_allocate);
+
+        if (safety == NULL) {
+            fprintf(stderr, "Failed to grow memory block!\n");
+        }
+        str->val = safety;
+        str->allocated = new_allocate;
+    }
+
+    //memcpy(str->val+str->length, c, app_len);
+    strcat(str->val, c);
 }
 
 
@@ -63,5 +76,15 @@ void print_string(const String* str){
 
 char string_at(const String* str, int i){
     return *(str->val + i);
+}
+
+void string_append(String* str, const String* str_too){
+
+    secret_string_append(str, str_too->val);
+}
+
+void string_append_c(String* str, const char* lit){
+
+    secret_string_append(str, lit);
 }
 
