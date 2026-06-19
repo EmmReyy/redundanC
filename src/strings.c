@@ -22,7 +22,9 @@ void secret_string_append(String* str, const char* c){
 }
 
 
-
+void secret_string_insert(String* str, int ndx, const char* c){
+    
+}
 
 
 
@@ -87,3 +89,10 @@ void string_append_c(String* str, const char* lit){
     secret_string_append(str, lit);
 }
 
+void string_insert(String* str, int ndx, const String* str_too){
+
+}
+
+void string_insert_c(String* str, int ndx, const char* c){
+
+}

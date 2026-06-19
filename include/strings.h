@@ -28,9 +28,9 @@ void string_append(String* str, const String* str_too);
 
 void string_append_c(String* str, const char* lit);
 
-void strinig_insert(String* str, const String* str_too, int ndx);
+void string_insert(String* str, int ndx, const String* str_too);
 
-void string_insert_c(String* str, int ndx, const char*);
+void string_insert_c(String* str, int ndx, const char* c);
 
 void string_replace(String* str, int start, int end, char* line);
 
