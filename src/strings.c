@@ -3,6 +3,18 @@
 #include <stdio.h>
 
 
+void secret_string_append(String* str, const char* c){
+    int l = strlen(c);
+    str->length += l;
+
+}
+
+
+
+
+
+
+
 String new_string(char *c) {
 
     String this;
@@ -14,7 +26,6 @@ String new_string(char *c) {
 
     this.length = strlen(c);
     this.allocated = this.length + 1;
-
     this.val = malloc(this.allocated);
 
     if (this.val == NULL) {
@@ -29,8 +40,7 @@ String new_string(char *c) {
     return this;
 }
 
-
-void change_string(String* str, char* c){
+void change_string(String* str, const char* c){
     if (str == NULL || c == NULL){
         fprintf(stderr, "Dumbass Error: String value is empty.\n");  
     }
@@ -38,18 +48,20 @@ void change_string(String* str, char* c){
     str->length = strlen(c);
     str->allocated = str->length + 1;
 
+    free(str->val);
+
     str->val = malloc(str->allocated);
     if (str->val != NULL) {
         memcpy(str->val, c, str->allocated);
     }
 }
 
-void print_string(String* str){
+void print_string(const String* str){
     printf("%s", str->val);
 }
 
 
-char string_at(String* str, int i){
+char string_at(const String* str, int i){
     return *(str->val + i);
 }
 

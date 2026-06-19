@@ -16,19 +16,29 @@ typedef struct {
 String new_string(char* c);
 
 //for changing a string's value. more efficent
-void change_string(String* str, char* c);
+void change_string(String* str, const char* c);
 
 //print string
-void print_string(String* str);
+void print_string(const String* str);
 
 //return the char at index
-char string_at(String* str, int i);
+char string_at(const String* str, int i);
+
+void string_append(String* str, const String* str_too);
+
+void string_append_c(String* str, const char* lit);
+
+void strinig_insert(String* str, const String* str_too, int ndx);
+
+void string_insert_c(String* str, int ndx, const char*);
+
+void string_replace(String* str, int start, int end, char* line);
+
+void string_free(String* str);
 
 //empty the string
 void clear();
 
-//compares string equality
-bool isEqual(String a, String b);
 
 
 

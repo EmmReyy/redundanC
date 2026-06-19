@@ -6,7 +6,7 @@ int main(){
     String str = new_string("Hello World!");
 
     print_string(&str);
-    str = new_string("Goodbye World!");
+    change_string(&str, "Goodbye World!");
 
     print_string(&str);
     int ndx = 11;
