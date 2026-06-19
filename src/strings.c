@@ -18,8 +18,7 @@ void secret_string_append(String* str, const char* c){
         str->allocated = new_allocate;
     }
 
-    //memcpy(str->val+str->length, c, app_len);
-    strcat(str->val, c);
+    memcpy(str->val+str->length, c, app_len);
 }
 
 
