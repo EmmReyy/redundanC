@@ -22,7 +22,23 @@ void secret_string_append(String* str, const char* c){
 }
 
 void secret_string_insert(String* str, int ndx, const char* c){
+
+    int len = strlen(c);
+    int new_allocate = str->allocated + len + 1;
     
+    if (str->allocated < len+str->length +1){
+
+        char* temp = realloc(str->val, new_allocate);
+        if  (temp == NULL){
+            fprintf(stderr, "Realloc failed.");
+        }
+        str->val = temp;
+        str->allocated = new_allocate;
+    }
+    
+    memcpy(str->val+ndx+len,  str->val+ndx,  len);
+    memcpy(str->val+ndx, c, len);
+
 }
 
 String string_substr(const String* str, int start, int end){
@@ -109,5 +125,5 @@ void string_insert(String* str, int ndx, const String* str_too){
 }
 
 void string_insert_c(String* str, int ndx, const char* c){
-
+    secret_string_insert(str, ndx, c);
 }

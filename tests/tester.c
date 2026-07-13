@@ -4,11 +4,11 @@
 int main(){
 
     String str = new_string("Hello World!");
+
+    string_insert_c(&str, 6, "and goodbye ");
     string_println(&str);
 
-    String sub = string_substr(&str, 1, 3);
-
-    string_println(&sub);
+  
         
 }
 
