@@ -21,12 +21,25 @@ void secret_string_append(String* str, const char* c){
     memcpy(str->val+str->length, c, app_len);
 }
 
-
 void secret_string_insert(String* str, int ndx, const char* c){
     
 }
 
+String string_substr(const String* str, int start, int end){
 
+    if (str->length < end){
+        fprintf(stderr, "Ending range exceeded size of string");
+        return new_string(NULL);
+    }
+
+    int len = 1+end-start;
+
+    char* sub = malloc(len);
+    memcpy(sub, str->val+start, len);
+    sub[len] = '\0';
+    String substr = new_string(sub);
+    return substr;
+}
 
 
 String new_string(char *c) {
@@ -70,10 +83,9 @@ void change_string(String* str, const char* c){
     }
 }
 
-void print_string(const String* str){
+void string_print(const String* str){
     printf("%s", str->val);
 }
-
 
 char string_at(const String* str, int i){
     return *(str->val + i);

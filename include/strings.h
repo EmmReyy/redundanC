@@ -19,14 +19,18 @@ String new_string(char* c);
 void change_string(String* str, const char* c);
 
 //print string
-void print_string(const String* str);
+void string_print(const String* str);
 
 //return the char at index
 char string_at(const String* str, int i);
 
+//append one String to another String
 void string_append(String* str, const String* str_too);
 
+//append a c style string to a String
 void string_append_c(String* str, const char* lit);
+
+String string_substr(const String* str, int start, int end);
 
 void string_insert(String* str, int ndx, const String* str_too);
 
@@ -38,12 +42,5 @@ void string_free(String* str);
 
 //empty the string
 void clear();
-
-
-
-
-
-
-
 
 #endif
