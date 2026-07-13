@@ -21,6 +21,9 @@ void change_string(String* str, const char* c);
 //print string
 void string_print(const String* str);
 
+//print string
+void string_println(const String* str);
+
 //return the char at index
 char string_at(const String* str, int i);
 

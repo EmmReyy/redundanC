@@ -41,7 +41,6 @@ String string_substr(const String* str, int start, int end){
     return substr;
 }
 
-
 String new_string(char *c) {
 
     String this;
@@ -85,6 +84,10 @@ void change_string(String* str, const char* c){
 
 void string_print(const String* str){
     printf("%s", str->val);
+}
+
+void string_println(const String* str){
+    printf("%s\n", str->val);
 }
 
 char string_at(const String* str, int i){
