@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 
-
+//internal functions
 void secret_string_append(String* str, const char* c){
     
     int app_len = strlen(c);
@@ -40,6 +40,8 @@ void secret_string_insert(String* str, int ndx, const char* c){
     memcpy(str->val+ndx, c, len);
 
 }
+
+
 
 String string_substr(const String* str, int start, int end){
 
@@ -121,7 +123,7 @@ void string_append_c(String* str, const char* lit){
 }
 
 void string_insert(String* str, int ndx, const String* str_too){
-
+    secret_string_insert(str, ndx, str->val);
 }
 
 void string_insert_c(String* str, int ndx, const char* c){

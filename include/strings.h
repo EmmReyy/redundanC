@@ -33,6 +33,7 @@ void string_append(String* str, const String* str_too);
 //append a c style string to a String
 void string_append_c(String* str, const char* lit);
 
+//
 String string_substr(const String* str, int start, int end);
 
 void string_insert(String* str, int ndx, const String* str_too);
