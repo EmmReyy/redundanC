@@ -3,12 +3,12 @@
 
 int main(){
 
-    String str = new_string("Hello World!");
+    String str = new_string("Hello World");
 
-    string_insert_c(&str, 6, "and goodbye ");
-    string_println(&str);
+    int ndx = string_find_c(&str, "orl");
 
-  
+    printf("%d\n",ndx);
         
+    
 }
 

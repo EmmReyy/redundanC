@@ -33,12 +33,16 @@ void string_append(String* str, const String* str_too);
 //append a c style string to a String
 void string_append_c(String* str, const char* lit);
 
-//
+//extracts a string from a String given range
 String string_substr(const String* str, int start, int end);
 
+//inserts a String into another String
 void string_insert(String* str, int ndx, const String* str_too);
 
+//inserts char* into a String
 void string_insert_c(String* str, int ndx, const char* c);
+
+int string_find_c(String* str, char* c);
 
 void string_replace(String* str, int start, int end, char* line);
 

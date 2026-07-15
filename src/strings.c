@@ -41,6 +41,35 @@ void secret_string_insert(String* str, int ndx, const char* c){
 
 }
 
+int secret_string_find(String* str, char* c){
+
+    int ndx = -1;
+
+    for (int i = 0; i < str->length-1; i++){
+        
+        if (str->val[i] == c[0]){
+            int j = 1+i;
+            int k = 1;
+            ndx = i;
+            
+            while(j < str->length-1){
+                if (str->val[j] != c[k]){
+                    ndx = -1;
+                    j += str-> length;
+                }
+                j++;
+                k++;
+            }       
+            if (ndx != -1){
+                return ndx;
+            }     
+        }
+    }
+
+    return ndx;
+
+}
+
 
 
 String string_substr(const String* str, int start, int end){
@@ -128,4 +157,14 @@ void string_insert(String* str, int ndx, const String* str_too){
 
 void string_insert_c(String* str, int ndx, const char* c){
     secret_string_insert(str, ndx, c);
+}
+
+int string_find_c(String* str, char* c){
+
+    return secret_string_find(str, c);
+}
+
+int string_find_c(String* str, String* str_too){
+
+    return secret_string_find(str, str_too->val);
 }
