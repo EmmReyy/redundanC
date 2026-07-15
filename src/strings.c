@@ -3,6 +3,22 @@
 #include <stdio.h>
 
 //internal functions
+
+void secret_reallocer(String* str, int len){
+
+        int new_allocate = len+1+str->allocated;
+
+        if (str->allocated < str->length + 1 + len){
+        char* safety = realloc(str->val, new_allocate);
+
+        if (safety == NULL) {
+            fprintf(stderr, "Failed to grow memory block!\n");
+        }
+        str->val = safety;
+        str->allocated = new_allocate;
+    }
+}
+
 void secret_string_append(String* str, const char* c){
     
     int app_len = strlen(c);
@@ -72,6 +88,9 @@ int secret_string_find(String* str, char* c){
 
 void secret_string_replace(String* str, int ndx, char* line){
     int len = strlen(line);
+    int new_alloc = str->allocated + len;
+
+    secret_reallocer(str, len);
 
     memcpy(str->val, line, len);
 }
