@@ -51,6 +51,7 @@ int string_find_c(String* str, char* c);
 //replaces a portion of String at range
 void string_replace_c(String* str, int ndx, char* line);
 
+//replaces a portion of a String with String
 void string_replace(String* str, int ndx, String* str_too);
 
 //frees the String from memory
@@ -58,5 +59,8 @@ void string_free(String* str);
 
 //empty the string
 void clear();
+
+//removes plain whitespaces at end and start of strings
+void string_trim(String* str);
 
 #endif

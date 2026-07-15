@@ -1,6 +1,7 @@
 #include "strings.h"
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 
 //internal functions
 
@@ -82,6 +83,9 @@ int secret_string_find(String* str, char* c){
         }
     }
 
+    if (ndx == -1){
+        fprintf(stderr, "Couldn't find substring.\n");
+    }
     return ndx;
 
 }
@@ -202,3 +206,35 @@ void string_replace_c(String* str, int ndx, char* line){
 void string_replace(String* str, int ndx, String* str_too){
     secret_string_replace(str, ndx, str_too -> val);
 }
+
+void string_trim(String* str){
+
+    int start = -1;
+    int end = -1;
+    
+    for (int i = 0; i < str->length -1; i++){
+        if (!isspace(str->val[i])){
+            start = i;
+            break;
+        }        
+    }
+
+    
+    for (int j = str->length-1; j > 0; j--){
+        if (!isspace(str->val[j])){
+            end = j;    
+            break;
+        }
+    }
+
+    if (start != -1 && end != -1){
+        
+        for (int k = 0; k <= end; k++){
+            str-> val[k] = str->val[start+k];
+        }
+
+        str->val[end-start+1] = '\0';
+    }
+}
+
+
