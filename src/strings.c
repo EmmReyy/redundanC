@@ -70,6 +70,13 @@ int secret_string_find(String* str, char* c){
 
 }
 
+void secret_string_replace(String* str, int ndx, char* line){
+    int len = strlen(line);
+
+    memcpy(str->val, line, len);
+}
+
+
 
 
 String string_substr(const String* str, int start, int end){
@@ -164,7 +171,15 @@ int string_find_c(String* str, char* c){
     return secret_string_find(str, c);
 }
 
-int string_find_c(String* str, String* str_too){
+int string_find(String* str, String* str_too){
 
     return secret_string_find(str, str_too->val);
+}
+
+void string_replace_c(String* str, int ndx, char* line){
+    secret_string_replace(str, ndx, line);
+}
+
+void string_replace(String* str, int ndx, String* str_too){
+    secret_string_replace(str, ndx, str_too -> val);
 }

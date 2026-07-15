@@ -42,10 +42,18 @@ void string_insert(String* str, int ndx, const String* str_too);
 //inserts char* into a String
 void string_insert_c(String* str, int ndx, const char* c);
 
+//finds a substring String in String, return index of first instance, returns -1 if not found
+int string_find(String* str, String* str_too);
+
+//finds a substring char* in String, return index of first instance, returns -1 if not found
 int string_find_c(String* str, char* c);
 
-void string_replace(String* str, int start, int end, char* line);
+//replaces a portion of String at range
+void string_replace_c(String* str, int ndx, char* line);
 
+void string_replace(String* str, int ndx, String* str_too);
+
+//frees the String from memory
 void string_free(String* str);
 
 //empty the string

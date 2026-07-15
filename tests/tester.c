@@ -3,12 +3,11 @@
 
 int main(){
 
-    String str = new_string("Hello World");
+    String str = new_string("Hello World!");
+    String str_too = new_string("Howdy");
 
-    int ndx = string_find_c(&str, "orl");
-
-    printf("%d\n",ndx);
+    string_replace(&str, 0, &str_too);
         
-    
+    string_println(&str);
 }
 
